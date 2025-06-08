@@ -1,0 +1,376 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+ 
+  --sage-green: #9caf88;
+  --forest-green: #4a5d3a;
+  --moss-green: #8b956d;
+  --eucalyptus: #7d8471;
+  --fern-green: #658354;
+
+  --terracotta: #c65d07;
+  --burnt-sienna: #a0522d;
+  --warm-beige: #f5f5dc;
+  --cream: #fdf6e3;
+  --linen: #faf0e6;
+
+  --dusty-rose: #d4a4a4;
+  --mauve: #e0b4b7;
+  --sunset-orange: #e07b39;
+  --golden-yellow: #f4d03f;
+  --lavender-gray: #b8a9c9;
+
+
+  --driftwood: #8b7355;
+  --weathered-wood: #a0826d;
+  --stone-gray: #8e8e93;
+  --parchment: #f4f1de;
+
+  --foreground-rgb: 74, 93, 58;
+  --background-start-rgb: 253, 246, 227;
+  --background-end-rgb: 250, 240, 230;
+}
+
+.texture-paper {
+  background-image: radial-gradient(
+      circle at 20% 50%,
+      transparent 20%,
+      rgba(139, 149, 109, 0.05) 21%,
+      rgba(139, 149, 109, 0.05) 34%,
+      transparent 35%,
+      transparent
+    ),
+    linear-gradient(0deg, rgba(244, 241, 222, 0.8), rgba(250, 240, 230, 0.9));
+}
+
+.texture-linen {
+  background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.1) 2px,
+      rgba(255, 255, 255, 0.1) 4px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.05) 2px,
+      rgba(0, 0, 0, 0.05) 4px
+    );
+}
+
+.botanical-pattern {
+  background-image: radial-gradient(
+      circle at 25% 25%,
+      rgba(156, 175, 136, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(139, 149, 109, 0.08) 0%,
+      transparent 50%
+    ),
+    linear-gradient(
+      45deg,
+      transparent 40%,
+      rgba(74, 93, 58, 0.05) 41%,
+      rgba(74, 93, 58, 0.05) 42%,
+      transparent 43%
+    ),
+    linear-gradient(
+      -45deg,
+      transparent 40%,
+      rgba(156, 175, 136, 0.05) 41%,
+      rgba(156, 175, 136, 0.05) 42%,
+      transparent 43%
+    );
+  background-size: 60px 60px, 80px 80px, 20px 20px, 20px 20px;
+  background-position: 0 0, 40px 40px, 0 0, 10px 10px;
+}
+
+@keyframes fade-in-botanical {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes gentle-sway {
+  0%,
+  100% {
+    transform: rotate(-1deg) translateX(-2px);
+  }
+  50% {
+    transform: rotate(1deg) translateX(2px);
+  }
+}
+
+@keyframes bloom-in {
+  0% {
+    transform: scale(0.3) rotate(-180deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1) rotate(-90deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes mystical-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(156, 175, 136, 0.3),
+      0 0 40px rgba(156, 175, 136, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(156, 175, 136, 0.5),
+      0 0 60px rgba(156, 175, 136, 0.2);
+  }
+}
+
+.animate-fade-in-botanical {
+  animation: fade-in-botanical 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-gentle-sway {
+  animation: gentle-sway 6s ease-in-out infinite;
+}
+
+.animate-bloom-in {
+  animation: bloom-in 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.animate-mystical-glow {
+  animation: mystical-glow 3s ease-in-out infinite;
+}
+
+.boho-card {
+  background: linear-gradient(
+    135deg,
+    rgba(253, 246, 227, 0.95) 0%,
+    rgba(250, 240, 230, 0.9) 50%,
+    rgba(244, 241, 222, 0.95) 100%
+  );
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(156, 175, 136, 0.3);
+  box-shadow: 0 8px 32px rgba(74, 93, 58, 0.1),
+    0 4px 16px rgba(156, 175, 136, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.boho-button {
+  background: linear-gradient(
+    135deg,
+    var(--sage-green) 0%,
+    var(--moss-green) 50%,
+    var(--forest-green) 100%
+  );
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(74, 93, 58, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.boho-button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(74, 93, 58, 0.4),
+    0 4px 15px rgba(156, 175, 136, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.rustic-border {
+  border: 3px solid;
+  border-image: linear-gradient(
+      45deg,
+      var(--driftwood),
+      var(--weathered-wood),
+      var(--stone-gray),
+      var(--driftwood)
+    )
+    1;
+}
+
+.botanical-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--cream) 0%,
+    var(--linen) 20%,
+    var(--warm-beige) 40%,
+    var(--parchment) 60%,
+    var(--linen) 80%,
+    var(--cream) 100%
+  );
+}
+
+.font-botanical {
+  font-family: "Merriweather", serif;
+}
+
+.font-boho-script {
+  font-family: "Dancing Script", cursive;
+}
+
+.font-rustic {
+  font-family: "Playfair Display", serif;
+}
+
+.font-nature {
+  font-family: "Crimson Text", serif;
+}
+
+.font-earthy {
+  font-family: "Cormorant Garamond", serif;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(to bottom, var(--cream), var(--linen));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--sage-green), var(--moss-green));
+  border-radius: 10px;
+  border: 2px solid var(--cream);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    to bottom,
+    var(--moss-green),
+    var(--forest-green)
+  );
+}
+
+.nature-glass {
+  background: rgba(253, 246, 227, 0.25);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(156, 175, 136, 0.3);
+  box-shadow: 0 8px 32px rgba(74, 93, 58, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.focus-botanical:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(156, 175, 136, 0.4),
+    0 0 20px rgba(156, 175, 136, 0.2);
+  border-color: var(--sage-green);
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: radial-gradient(
+      ellipse at top,
+      rgba(156, 175, 136, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at bottom,
+      rgba(244, 241, 222, 0.2) 0%,
+      transparent 50%
+    ),
+    linear-gradient(
+      135deg,
+      rgb(var(--background-start-rgb)) 0%,
+      rgb(var(--background-end-rgb)) 100%
+    );
+  background-attachment: fixed;
+  font-family: "Merriweather", serif;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.animate-fade-in {
+  animation: fade-in-botanical 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(74, 93, 58, 0.15),
+    0 8px 20px rgba(156, 175, 136, 0.1);
+}
+
+.botanical-spinner {
+  border: 3px solid rgba(156, 175, 136, 0.3);
+  border-top: 3px solid var(--sage-green);
+  border-radius: 50%;
+  animation: spin 1.5s ease-in-out infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.mystical-bg-shape {
+  position: absolute;
+  border-radius: 50% 30% 70% 40%;
+  background: linear-gradient(
+    135deg,
+    rgba(156, 175, 136, 0.1),
+    rgba(139, 149, 109, 0.05)
+  );
+  animation: gentle-float 8s ease-in-out infinite;
+}
+
+@keyframes gentle-float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translateY(-20px) rotate(2deg) scale(1.05);
+  }
+  66% {
+    transform: translateY(10px) rotate(-1deg) scale(0.95);
+  }
+}
+
+.texture-overlay {
+  background-image: radial-gradient(
+      circle at 30% 40%,
+      rgba(244, 241, 222, 0.3) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 60%,
+      rgba(250, 240, 230, 0.2) 0%,
+      transparent 50%
+    );
+  background-size: 200px 200px, 150px 150px;
+}
+
+@media (max-width: 640px) {
+  .animate-fade-in-botanical {
+    animation-duration: 0.6s;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px) scale(1.01);
+  }
+
+  .boho-card {
+    backdrop-filter: blur(8px);
+  }
+}
