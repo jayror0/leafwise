@@ -97,13 +97,6 @@ const config: Config = {
         nature:
           "0 15px 35px rgba(74, 93, 58, 0.15), 0 8px 20px rgba(156, 175, 136, 0.1)",
       },
-      animation: {
-        "fade-in-botanical":
-          "fade-in-botanical 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
-        "gentle-sway": "gentle-sway 6s ease-in-out infinite",
-        "bloom-in": "bloom-in 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55)",
-        "mystical-glow": "mystical-glow 3s ease-in-out infinite",
-      },
     },
   },
   plugins: [],

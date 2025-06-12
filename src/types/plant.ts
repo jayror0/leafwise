@@ -16,7 +16,7 @@ export interface Plant {
 
   careTips?: string;
   benefits?: string;
-  placement?: "indoor" | "outdoor" | "both";
+  placement?: string;
 
   tagalog?: {
     name?: string;

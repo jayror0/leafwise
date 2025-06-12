@@ -6,13 +6,17 @@ import { Logo } from "@/components/icons/Logo";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Menu, Sprout, AlertTriangle } from "lucide-react";
 import { useState } from "react";
 
-const navItems = [
-  { href: "/", label: "Mystical Identify", icon: Sprout },
-];
+const navItems = [{ href: "/", label: "Mystical Identify", icon: Sprout }];
 
 export function Footer() {
   const pathname = usePathname();
@@ -24,25 +28,24 @@ export function Footer() {
         variant="ghost"
         asChild
         className={cn(
-          "justify-start text-base font-botanical font-medium transition-all duration-500 hover:scale-105 rounded-2xl",
+          "justify-start text-base font-botanical font-medium rounded-2xl",
           pathname === item.href
             ? "bg-gradient-to-r from-sage-400/20 to-moss-500/20 text-forest-700 font-semibold shadow-botanical border border-sage-300/30"
-            : "text-forest-600 hover:text-sage-600 hover:bg-sage-100/50 hover:shadow-mystical",
-          isMobile ? "w-full text-left py-4 rounded-2xl" : "rounded-2xl px-6 py-3"
+            : "text-forest-600",
+          isMobile
+            ? "w-full text-left py-4 rounded-2xl"
+            : "rounded-2xl px-6 py-3"
         )}
       >
         <Link href={item.href} className="flex items-center">
-          <item.icon 
+          <item.icon
             className={cn(
-              "mr-3 h-5 w-5 transition-transform duration-300 animate-gentle-sway",
+              "mr-3 h-5 w-5",
               pathname === item.href ? "text-sage-500" : "text-forest-500"
             )}
             aria-hidden="true"
           />
-          <span className="flex items-center gap-2">
-            {item.label}
-            <span className="text-lg"></span>
-          </span>
+          <span className="flex items-center gap-2">{item.label}</span>
         </Link>
       </Button>
     ));
@@ -50,19 +53,10 @@ export function Footer() {
   return (
     <footer className="relative w-full botanical-gradient border-t-4 border-sage-300/50 shadow-mystical mt-auto overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-4 left-10 w-16 h-16 bg-sage-200/20 rounded-full blur-xl animate-gentle-sway"></div>
-        <div
-          className="absolute top-2 right-20 w-12 h-12 bg-moss-300/15 rounded-full blur-lg animate-gentle-sway"
-          style={{ animationDelay: "2s" }}
-        ></div>
-        <div
-          className="absolute bottom-2 left-1/4 w-20 h-20 bg-forest-200/10 rounded-full blur-2xl animate-gentle-sway"
-          style={{ animationDelay: "4s" }}
-        ></div>
-        <div
-          className="absolute bottom-4 right-1/3 w-10 h-10 bg-terracotta-200/20 rounded-full blur-md animate-gentle-sway"
-          style={{ animationDelay: "1s" }}
-        ></div>
+        <div className="absolute top-4 left-10 w-16 h-16 bg-sage-200/20 rounded-full blur-xl"></div>
+        <div className="absolute top-2 right-20 w-12 h-12 bg-moss-300/15 rounded-full blur-lg"></div>
+        <div className="absolute bottom-2 left-1/4 w-20 h-20 bg-forest-200/10 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-4 right-1/3 w-10 h-10 bg-terracotta-200/20 rounded-full blur-md"></div>
 
         <div className="absolute inset-0 texture-paper opacity-20"></div>
       </div>
@@ -73,7 +67,7 @@ export function Footer() {
             <Button
               variant="ghost"
               size="sm"
-              className="hidden md:flex items-center gap-2 text-forest-600 hover:text-sage-600 hover:bg-sage-100/50 hover:shadow-mystical transition-all duration-300 rounded-2xl px-4 py-2 text-sm font-botanical"
+              className="hidden md:flex items-center gap-2 text-forest-600 rounded-2xl px-4 py-2 text-sm font-botanical"
             >
               <AlertTriangle className="h-4 w-4" />
               <span>AI Disclaimer</span>
@@ -88,35 +82,27 @@ export function Footer() {
             </DialogHeader>
             <div className="space-y-6 font-botanical text-forest-700">
               <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-forest-800">English</h3>
+                <h3 className="text-lg font-semibold text-forest-800">
+                  English
+                </h3>
                 <p>
-                  LeafWise uses Google AI models for plant identification. While we strive for accuracy, please note that:
+                  Plant identification and care tips are AI-generated and may not always be 100% accurate. Always consult multiple sources for critical plant care decisions.
                 </p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>AI predictions may not always be 100% accurate</li>
-                  <li>Results should be verified with additional trusted sources</li>
-                  <li>Do not rely solely on AI identification for consuming or using plants</li>
-                  <li>Consult experts for definitive plant identification, especially for medicinal or edible use</li>
-                </ul>
               </div>
               <div className="border-t border-sage-300/30 pt-6 space-y-4">
-                <h3 className="text-lg font-semibold text-forest-800">Tagalog</h3>
+                <h3 className="text-lg font-semibold text-forest-800">
+                  Tagalog
+                </h3>
                 <p>
-                  Gumagamit ang LeafWise ng Google AI models para sa pagtukoy ng halaman. Bagaman sinisikap naming maging tumpak, mangyaring tandaan na:
+                  Ang pagkilala ng halaman at mga payo sa pag-aalaga nito ay gawa ng AI at maaaring hindi palaging 100% wasto. Laging kumonsulta sa iba't ibang mapagkukunan para sa mga kritikal na desisyon sa pag-aalaga ng halaman.
                 </p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Ang mga pagtukoy ng AI ay maaaring hindi palaging 100% tumpak</li>
-                  <li>Ang mga resulta ay dapat kumpirmahin sa iba pang mapagkakatiwalaang sources</li>
-                  <li>Huwag umasa lamang sa pagtukoy ng AI para sa pagkonsumo o paggamit ng mga halaman</li>
-                  <li>Kumunsulta sa mga eksperto para sa tiyak na pagkakakilanlan ng halaman, lalo na para sa gamot o pagkain</li>
-                </ul>
               </div>
             </div>
           </DialogContent>
         </Dialog>
         <Link href="/" className="flex items-center space-x-4 group">
-          <div className="relative p-2 group-hover:scale-110 transition-transform duration-500 animate-bloom-in">
-            <div className="absolute -inset-2 bg-gradient-to-r from-sage-300/30 via-moss-400/20 to-forest-300/30 rounded-full blur-lg group-hover:blur-xl transition-all duration-500"></div>
+          <div className="relative p-2">
+            <div className="absolute -inset-2 bg-gradient-to-r from-sage-300/30 via-moss-400/20 to-forest-300/30 rounded-full blur-lg"></div>
             <Logo className="h-16 w-16 text-forest-600 drop-shadow-lg relative z-10" />
           </div>
           <div className="flex flex-col">
@@ -128,53 +114,42 @@ export function Footer() {
               <span className="text-sm text-forest-700 font-botanical font-light italic">
                 Ancient Plant Wisdom
               </span>
-              <span className="text-lg animate-gentle-sway"></span>
             </div>
           </div>
         </Link>
 
         <nav className="hidden md:flex items-center space-x-4">
           {renderNavLinks()}
-          <div className="flex items-center gap-3 ml-6">
-            <span className="text-2xl animate-gentle-sway"></span>
-            <span
-              className="text-2xl animate-gentle-sway"
-              style={{ animationDelay: "1s" }}
-            >
-            </span>
-            <span
-              className="text-2xl animate-gentle-sway"
-              style={{ animationDelay: "2s" }}
-            >
-              
-            </span>
-          </div>
+          <div className="flex items-center gap-3 ml-6"></div>
         </nav>
 
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <Button 
-                variant="ghost" 
+              <Button
+                variant="ghost"
                 size="icon"
-                className="relative rounded-2xl hover:bg-sage-100/50 transition-all duration-500 hover:shadow-mystical hover:scale-105 border border-sage-200/30"
+                className="relative rounded-2xl border border-sage-200/30"
               >
                 <Menu className="h-6 w-6 text-forest-600" />
                 <span className="sr-only">Toggle mystical navigation menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[320px] p-6 botanical-gradient border-l-4 border-sage-300/50">
+            <SheetContent
+              side="right"
+              className="w-[320px] p-6 botanical-gradient border-l-4 border-sage-300/50"
+            >
               <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-10 right-10 w-20 h-20 bg-sage-200/20 rounded-full blur-xl animate-gentle-sway"></div>
-                <div
-                  className="absolute bottom-20 left-10 w-16 h-16 bg-moss-300/15 rounded-full blur-lg animate-gentle-sway"
-                  style={{ animationDelay: "1s" }}
-                ></div>
+                <div className="absolute top-10 right-10 w-20 h-20 bg-sage-200/20 rounded-full blur-xl"></div>
+                <div className="absolute bottom-20 left-10 w-16 h-16 bg-moss-300/15 rounded-full blur-lg"></div>
                 <div className="absolute inset-0 texture-paper opacity-20"></div>
               </div>
-              
-              <Link href="/" className="mb-8 flex items-center space-x-4 group relative z-10">
-                <div className="relative p-2 animate-bloom-in">
+
+              <Link
+                href="/"
+                className="mb-8 flex items-center space-x-4 group relative z-10"
+              >
+                <div className="relative p-2">
                   <div className="absolute -inset-2 bg-gradient-to-r from-sage-300/30 via-moss-400/20 to-forest-300/30 rounded-full blur-lg"></div>
                   <Logo className="h-12 w-12 text-forest-600 drop-shadow-lg relative z-10" />
                 </div>
@@ -187,18 +162,17 @@ export function Footer() {
                     <span className="text-xs text-forest-700 font-botanical font-light italic">
                       Ancient Wisdom
                     </span>
-                    <span className="text-sm animate-gentle-sway"></span>
                   </div>
                 </div>
               </Link>
-              
+
               <nav className="flex flex-col space-y-4 relative z-10">
                 {renderNavLinks(true)}
                 <Dialog>
                   <DialogTrigger asChild>
                     <Button
                       variant="ghost"
-                      className="w-full text-left py-4 rounded-2xl flex items-center gap-2 text-forest-600 hover:text-sage-600 hover:bg-sage-100/50 hover:shadow-mystical transition-all duration-300 font-botanical"
+                      className="w-full text-left py-4 rounded-2xl flex items-center gap-2 text-forest-600 font-botanical"
                     >
                       <AlertTriangle className="h-4 w-4" />
                       <span>AI Disclaimer</span>
@@ -213,53 +187,31 @@ export function Footer() {
                     </DialogHeader>
                     <div className="space-y-6 font-botanical text-forest-700">
                       <div className="space-y-4">
-                        <h3 className="text-lg font-semibold text-forest-800">English</h3>
+                        <h3 className="text-lg font-semibold text-forest-800">
+                          English
+                        </h3>
                         <p>
-                          LeafWise uses Google AI models for plant identification. While we strive for accuracy, please note that:
+                          Plant identification and care tips are AI-generated and may not always be 100% accurate. Always consult multiple sources for critical plant care decisions.
                         </p>
-                        <ul className="list-disc pl-6 space-y-2">
-                          <li>AI predictions may not always be 100% accurate</li>
-                          <li>Results should be verified with additional trusted sources</li>
-                          <li>Do not rely solely on AI identification for consuming or using plants</li>
-                          <li>Consult experts for definitive plant identification, especially for medicinal or edible use</li>
-                        </ul>
                       </div>
                       <div className="border-t border-sage-300/30 pt-6 space-y-4">
-                        <h3 className="text-lg font-semibold text-forest-800">Tagalog</h3>
+                        <h3 className="text-lg font-semibold text-forest-800">
+                          Tagalog
+                        </h3>
                         <p>
-                          Gumagamit ang LeafWise ng Google AI models para sa pagtukoy ng halaman. Bagaman sinisikap naming maging tumpak, mangyaring tandaan na:
+                          Ang pagkilala ng halaman at mga payo sa pag-aalaga nito ay gawa ng AI at maaaring hindi palaging 100% wasto. Laging kumonsulta sa iba't ibang mapagkukunan para sa mga kritikal na desisyon sa pag-aalaga ng halaman.
                         </p>
-                        <ul className="list-disc pl-6 space-y-2">
-                          <li>Ang mga pagtukoy ng AI ay maaaring hindi palaging 100% tumpak</li>
-                          <li>Ang mga resulta ay dapat kumpirmahin sa iba pang mapagkakatiwalaang sources</li>
-                          <li>Huwag umasa lamang sa pagtukoy ng AI para sa pagkonsumo o paggamit ng mga halaman</li>
-                          <li>Kumunsulta sa mga eksperto para sa tiyak na pagkakakilanlan ng halaman, lalo na para sa gamot o pagkain</li>
-                        </ul>
                       </div>
                     </div>
                   </DialogContent>
                 </Dialog>
-                <div className="flex justify-center items-center gap-4 mt-6 pt-6 border-t border-sage-300/30">
-                  <span className="text-2xl animate-gentle-sway"></span>
-                  <span
-                    className="text-2xl animate-gentle-sway"
-                    style={{ animationDelay: "1s" }}
-                  >
-                    
-                  </span>
-                  <span
-                    className="text-2xl animate-gentle-sway"
-                    style={{ animationDelay: "2s" }}
-                  >
-                    
-                  </span>
-                </div>
+                <div className="flex justify-center items-center gap-4 mt-6 pt-6 border-t border-sage-300/30"></div>
               </nav>
             </SheetContent>
           </Sheet>
         </div>
       </div>
-      
+
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-sage-300 via-moss-400 to-forest-500"></div>
     </footer>
   );

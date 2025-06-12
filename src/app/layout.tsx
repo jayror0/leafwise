@@ -1,32 +1,25 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import { Footer } from "@/components/layout/footer";
-import { Toaster } from "@/components/ui/toaster";
 import { Providers } from "@/components/Providers";
+import { Footer } from "@/components/layout/footer";
+import "./globals.css";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "LeafWise - Plant Identification",
-  description: "Identify plants from photos and learn about their care.",
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/leafwiselogopng.png",
-  },
+  description: "Identify plants and learn about their care with LeafWise",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="antialiased min-h-screen flex flex-col">
+    <html lang="en">
+      <body className="flex flex-col min-h-screen">
         <Providers>
-          <main className="flex-grow w-full">
+          <main className="flex-grow">
             {children}
           </main>
-          <Toaster />
           <Footer />
         </Providers>
       </body>

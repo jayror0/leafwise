@@ -4,7 +4,6 @@
 @tailwind utilities;
 
 :root {
- 
   --sage-green: #9caf88;
   --forest-green: #4a5d3a;
   --moss-green: #8b956d;
@@ -12,7 +11,7 @@
   --fern-green: #658354;
 
   --terracotta: #c65d07;
-  --burnt-sienna: #a0522d;
+  --burnt-sienna--burnt-sienna: #a0522d;
   --warm-beige: #f5f5dc;
   --cream: #fdf6e3;
   --linen: #faf0e6;
@@ -22,7 +21,6 @@
   --sunset-orange: #e07b39;
   --golden-yellow: #f4d03f;
   --lavender-gray: #b8a9c9;
-
 
   --driftwood: #8b7355;
   --weathered-wood: #a0826d;
@@ -92,70 +90,6 @@
   background-position: 0 0, 40px 40px, 0 0, 10px 10px;
 }
 
-@keyframes fade-in-botanical {
-  from {
-    opacity: 0;
-    transform: translateY(30px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes gentle-sway {
-  0%,
-  100% {
-    transform: rotate(-1deg) translateX(-2px);
-  }
-  50% {
-    transform: rotate(1deg) translateX(2px);
-  }
-}
-
-@keyframes bloom-in {
-  0% {
-    transform: scale(0.3) rotate(-180deg);
-    opacity: 0;
-  }
-  50% {
-    transform: scale(1.1) rotate(-90deg);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(1) rotate(0deg);
-    opacity: 1;
-  }
-}
-
-@keyframes mystical-glow {
-  0%,
-  100% {
-    box-shadow: 0 0 20px rgba(156, 175, 136, 0.3),
-      0 0 40px rgba(156, 175, 136, 0.1);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(156, 175, 136, 0.5),
-      0 0 60px rgba(156, 175, 136, 0.2);
-  }
-}
-
-.animate-fade-in-botanical {
-  animation: fade-in-botanical 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.animate-gentle-sway {
-  animation: gentle-sway 6s ease-in-out infinite;
-}
-
-.animate-bloom-in {
-  animation: bloom-in 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.animate-mystical-glow {
-  animation: mystical-glow 3s ease-in-out infinite;
-}
-
 .boho-card {
   background: linear-gradient(
     135deg,
@@ -179,13 +113,6 @@
   border: 2px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 15px rgba(74, 93, 58, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.boho-button:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 25px rgba(74, 93, 58, 0.4),
-    0 4px 15px rgba(156, 175, 136, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 .rustic-border {
@@ -247,14 +174,6 @@
   border: 2px solid var(--cream);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(
-    to bottom,
-    var(--moss-green),
-    var(--forest-green)
-  );
-}
-
 .nature-glass {
   background: rgba(253, 246, 227, 0.25);
   backdrop-filter: blur(16px) saturate(180%);
@@ -293,60 +212,6 @@ body {
   line-height: 1.6;
 }
 
-.animate-fade-in {
-  animation: fade-in-botanical 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hover-lift {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hover-lift:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 15px 35px rgba(74, 93, 58, 0.15),
-    0 8px 20px rgba(156, 175, 136, 0.1);
-}
-
-.botanical-spinner {
-  border: 3px solid rgba(156, 175, 136, 0.3);
-  border-top: 3px solid var(--sage-green);
-  border-radius: 50%;
-  animation: spin 1.5s ease-in-out infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.mystical-bg-shape {
-  position: absolute;
-  border-radius: 50% 30% 70% 40%;
-  background: linear-gradient(
-    135deg,
-    rgba(156, 175, 136, 0.1),
-    rgba(139, 149, 109, 0.05)
-  );
-  animation: gentle-float 8s ease-in-out infinite;
-}
-
-@keyframes gentle-float {
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg) scale(1);
-  }
-  33% {
-    transform: translateY(-20px) rotate(2deg) scale(1.05);
-  }
-  66% {
-    transform: translateY(10px) rotate(-1deg) scale(0.95);
-  }
-}
-
 .texture-overlay {
   background-image: radial-gradient(
       circle at 30% 40%,
@@ -361,15 +226,23 @@ body {
   background-size: 200px 200px, 150px 150px;
 }
 
+.botanical-spinner {
+  border: 2px solid rgba(156, 175, 136, 0.3);
+  border-top: 2px solid var(--sage-green);
+  border-radius: 50%;
+  animation: botanical-spin 1s linear infinite;
+}
+
+@keyframes botanical-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @media (max-width: 640px) {
-  .animate-fade-in-botanical {
-    animation-duration: 0.6s;
-  }
-
-  .hover-lift:hover {
-    transform: translateY(-2px) scale(1.01);
-  }
-
   .boho-card {
     backdrop-filter: blur(8px);
   }
